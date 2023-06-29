@@ -2,4 +2,4 @@ Adam Resolusi
 -Selesai belajar github ,paham dengan github
 -Paham Kotlin 
 _Keterima Kerja
--Paham Java
+-Membuat Web

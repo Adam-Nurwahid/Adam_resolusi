@@ -3,5 +3,7 @@
 -Java 
 -Kotlin
 -Android Studio
+ Golang
+Ract
 -Fundamental
 -vlogs

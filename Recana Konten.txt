@@ -4,4 +4,6 @@
 -Kotlin
 -Android Studio
 -Fundamental
+-LARAVEL
+-PYTHON
 -vlogs

@@ -1,0 +1,159 @@
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <string.h>
+#include <Windows.h>
+#include <stdio.h>
+
+using namespace std;
+
+void login();
+void daftar();
+void forget();
+void loading(){
+    	system("COLOR 0e");
+	system("cls");
+	printf("\n\n\n\t\t\t\tLoading...");
+	printf("\n\n\n\t\t\t\t");
+	
+	for(int i = 0; i < 25; i ++)
+			cout<< (char)177;
+	cout<<"\r";
+	cout<<"\t\t\t\t";		
+	for(int i = 0; i < 25; i++){
+		
+		cout<< (char)219;
+		Sleep(150);
+	}
+	
+	cout<<"\n\t\t\t\t"<<(char)1 <<"!";
+	system("Pause");
+}
+
+int main() {
+
+    loading();
+    int choice;
+    cout << "******************************************************" << endl;
+    cout << "****************Welcome*******************************" << endl;
+    cout << "Menu\n";
+    cout << "1.Login\n";
+    cout << "2.Registration\n";
+    cout << "3.Forget Username Password\n";
+    cout << "4.Exit\n";
+    cout << "Enter Your Choice\n";
+    cin >> choice;
+    cout << endl;
+
+    switch (choice) {
+        case 1:
+            login();
+            break;
+
+        case 2:
+            daftar();
+            break;
+
+        case 3:
+            forget();
+            break;
+
+        case 4:
+            cout << "Exiting the program." << endl;
+            return 0;
+            break;
+
+        default:
+            cout << "Invalid choice. Please select a valid option." << endl;
+            main();
+    }
+
+    return 0;
+}
+
+void login() {
+    int count = 0;  // Fix: Initialize 'count'
+    string user, pass, u, p;
+    system("cls");
+    cout << "Please Enter the Following Details" << endl;
+    cout << "Username : ";
+    cin >> user;
+    cout << "Password : ";
+    cin >> pass;
+
+    ifstream input("database.txt");
+    while (input >> u >> p) {
+        if (u == user && p == pass) {
+            count = 1;
+            break;  // Fix: Exit the loop after finding a match
+        }
+    }
+    input.close();
+    if (count == 1) {
+        cout << "Hello " << user << "\n<Login Successful>\n";
+        cin.get();
+        main();
+    } else {
+        cout << "\nLogin Error\n";
+        main();
+    }
+}
+
+void daftar() {
+    string reguser, regpass;
+    system("cls");
+    cout << "Enter Username: ";
+    cin >> reguser;
+    cout << "Enter Your Password: ";
+    cin >> regpass;
+
+    ofstream reg("database.txt", ios::app);
+    reg << reguser << "  " << regpass << endl;
+    system("cls");
+    cout << "\nRegistration Successful" << endl;
+    main();
+}
+
+void forget() {
+    int ch;
+    system("cls");
+    cout << "Forgot? We are here to help" << endl;
+    cout << "1. Search By username" << endl;
+    cout << "2. Main menu" << endl;
+    cin >> ch;
+    switch (ch) {
+        case 1: {
+            int count = 0;  // Fix: Initialize 'count'
+            string searchuser, su, sp;
+            cout << "Enter your Remember username : ";
+            cin >> searchuser;
+
+            ifstream searchu("database.txt");
+            while (searchu >> su >> sp) {
+                if (su == searchuser) {
+                    count = 1;
+                    break;  // Fix: Exit the loop after finding a match
+                }
+            }
+            searchu.close();
+            if (count == 1) {
+                cout << "\nAccount found" << endl;
+                cout << "\nYour Password Is " << sp << endl;
+                cin.get();
+                system("cls");
+                main();
+            } else {
+                cout << "Sorry, your account was not found" << endl;
+                cin.get();
+                main();
+            }
+            break;
+        }
+        case 2:
+            main();
+            break;
+        default:
+            cout << "Invalid choice. Returning to main menu." << endl;
+            main();
+    }
+}

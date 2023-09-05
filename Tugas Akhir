@@ -1,0 +1,369 @@
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <string.h>
+#include <Windows.h>
+#include <stdio.h>
+
+using namespace std;
+
+void login();
+void daftar();
+void diskon();
+void forget();
+void daftarharga();
+void menumakananminuman();
+void loading(){
+    	system("COLOR 0e");
+	system("cls");
+	printf("\n\n\n\t\t\t\tLoading...");
+	printf("\n\n\n\t\t\t\t");
+	
+	for(int i = 0; i < 25; i ++)
+			cout<< (char)177;
+	cout<<"\r";
+	cout<<"\t\t\t\t";		
+	for(int i = 0; i < 25; i++){
+		
+		cout<< (char)219;
+		Sleep(150);
+	}
+	
+	cout<<"\n\t\t\t\t"<<(char)1 <<"!";
+	system("cls");
+}
+
+int main() {
+
+    loading();
+    int choice;
+    cout << "******************************************************" << endl;
+    cout << "****************SELAMAT DATANG DI WARNET UNIDA*******************************" << endl;
+    cout << "===========================Menu==============================\n";
+    cout << "1.Registration Member\n";
+    cout << "2.Forget Username Password\n";
+    cout << "3.Paket\n";
+    cout << "4.Menu Makanan & Minuman\n";
+    cout << "5.Exit\n";
+    cout << "================\n";
+    cout << "Enter Your Choice\n";
+    cin >> choice;
+    cout << endl;
+
+    switch (choice) {
+
+        case 1:
+            daftar();
+            break;
+
+        case 2:
+            forget();
+            break;
+
+        case 3:
+            daftarharga();
+            break;
+
+        case 4:
+            menumakananminuman();
+            break;
+
+        case 5:
+            cout << "Exiting the program." << endl;
+            return 0;
+            break;
+
+        
+
+        default:
+            cout << "Invalid choice. Please select a valid option." << endl;
+            main();
+    }
+
+    return 0;
+}
+
+void diskon(){
+    int total;
+    int diskon = total/2;
+    cout <<"Selamat Kamu dapat Diskon 50% \n Masukan Total Tagihan Mu =";
+    cin >> total;
+    cout <<"Tagihan Mu Menjadi  = "<< diskon <<endl;
+}
+
+void daftarharga(){
+    system("cls");
+    int diskon = 2;
+    int personal = 3000;
+    int dua = 1000;
+    int tiga = 3000;
+    int empat = 3000;
+    int lima = 5000;
+    int enam = 8000;
+    int tujuh = 10000;
+    int delapan = 12000;
+    string answer;
+    int choice;
+    string paket[8] = {"Personal\t", "Paket 20 menit", "Paket 40 menit", "Paket 1 Jam ", "Paket 2 Jam", "Paket 3 Jam","Paket 4 Jam","Paket 5 Jam"};
+    string harga[8] = {"3.000", "1.000", "3.000", "3.000/jam", "5.000/jam","8.000/jam","10.000/jam","12000/jam"};
+	
+	cout << "| No |\t Paket \t\t| \t Harga \t|\n";
+    cout << "=============================================\n";
+    for (int i = 0; i < 8; i++) {  
+        cout << "|  " << i + 1 << " | " << paket[i] << "\t| \t Rp." <<harga[i] << "\t|\n";
+    }
+    cout<<"================\n";
+    cout<<"9.Exit\n";
+    cout << "Enter Your Choice\n";
+    cin >> choice;
+    cout << endl;
+switch (choice) {
+        case 1:
+            cout<<"Tagihan mu ="<<personal;
+            cout<<"apakah kamu member?\n";
+            cout<<"\ny/n\n";
+            cin>>answer;
+            if(answer == "y"){
+                login();
+            }
+            break;
+
+        case 2:
+            cout<<"Tagihan mu ="<<dua;
+            break;
+
+        case 3:
+             cout<<"Tagihan mu ="<<tiga;
+            break;
+
+        case 5:
+            cout<<"Tagihan mu ="<<empat;
+            break;
+
+        case 4:
+            cout<<"Tagihan mu ="<<lima;
+            break;
+
+        case 6:
+             cout<<"Tagihan mu ="<<enam;
+            break;
+        
+        case 7:
+        cout<<"Tagihan mu ="<<tujuh;
+            break;
+
+        case 8:
+        cout << "Exiting the program." << endl;
+        main();
+            break;
+
+        default:
+            cout << "Invalid choice. Please select a valid option." << endl;
+            main();
+    }
+
+    system("cls");
+
+}
+
+
+void menumakananminuman() {
+    system("cls");
+    int indg = 5000;
+    int indr = 5000;
+    int cokelat = 3500;
+    int biskuit = 2000;
+    int btgr = 7000;
+    int teh = 2000;
+    int kopi = 3000;
+    int susu = 3000;
+    int tehsus = 5000;
+    int jus = 7000;
+    int choice;
+    int choicemakan;
+    int choiceminum;
+    string makan[5] = {"Indomie Goreng", "Indomie Rebus", "Cokelat\t", "Biskuit\t", "Batagor\t",};
+    string harga[5] = {"5000", "5000", "3500", "2000", "7000"};
+    string minuman[5] ={"Es Teh", "Kopi" , "Susu" , "Tehs usu" , "Jus"};
+    string hargaminuman[5] = {"2000" , "3000" , "3000" , "5000" , "7000"};
+    cout << "|========Menu Makanan & Minuman=========|\n";
+    cout << "| No |\t Makanan \t| \t Harga \t|\n";
+    cout << "==========================================\n";
+    
+
+    for (int i = 0; i < 5; i++) {  
+        cout << "|  " << i + 1 << " | " << makan[i] << "\t| \t" << harga[i] << "\t|\n";
+    }
+    
+    cout << "\n==========================================\n";
+    cout << "| No |\t Minuman \t| \t Harga \t|\n";
+    cout << "==========================================\n";
+    
+    for (int i = 0; i < 5; i++) {  
+        cout << "|  " << i + 1 << " | " << minuman[i] << "\t\t| \t" << hargaminuman[i] << "\t|\n";
+    }
+    
+    cout << "6.Main Menu\n";
+    cout << "Enter Your Choice Food = ";
+    cin>>choicemakan;
+    
+   
+//Terakhir Sampai sini Di bagian masukin pilhan ke switch
+    switch (choicemakan) {
+        case 1:
+            cout<<"Tagihan mu ="<<indg<<endl;
+            break;
+
+        case 2:
+            cout<<"Tagihan mu ="<<indr<<endl;
+            break;
+
+        case 3:
+             cout<<"Tagihan mu ="<<cokelat<<endl;
+            break;
+
+        case 5:
+            cout<<"Tagihan mu ="<<biskuit<<endl;
+            break;
+
+        case 4:
+            cout<<"Tagihan mu ="<<btgr<<endl;
+            break;
+
+        case 6:
+             cout<<"Kembali Ke main Menu";
+             Sleep(1000);
+             main();
+            break;
+
+        default:
+            cout << "Invalid choice. Please select a valid option." << endl;
+            main();
+    }
+ cout << "Enter Your Choice Drink = ";
+    cin>>choiceminum;
+
+    switch (choiceminum) {
+        case 1:
+            cout<<"Tagihan mu ="<<teh<<endl;
+            break;
+
+        case 2:
+            cout<<"Tagihan mu ="<<kopi<<endl;
+            break;
+
+        case 3:
+             cout<<"Tagihan mu ="<<susu<<endl;
+            break;
+
+        case 5:
+            cout<<"Tagihan mu ="<<tehsus<<endl;
+            break;
+
+        case 4:
+            cout<<"Tagihan mu ="<<jus<<endl;
+            break;
+
+        case 6:
+             cout<<"Kembali Ke main Menu";
+             Sleep(1000);
+             main();
+            break;
+
+        default:
+            cout << "Invalid choice. Please select a valid option." << endl;
+            main();
+    }
+}
+
+
+void login() {
+    int makan;
+    int minum;
+    int paket;
+    int total = paket + makan + minum;
+    int count = 0;  // Fix: Initialize 'count'
+    string user, pass, u, p;
+    system("cls");
+    cout << "Please Enter the Following Details" << endl;
+    cout << "Username : ";
+    cin >> user;
+    cout << "Password : ";
+    cin >> pass;
+
+    ifstream input("database.txt");
+    while (input >> u >> p) {
+        if (u == user && p == pass) {
+            count = 1;
+            break;  // Fix: Exit the loop after finding a match
+        }
+    }
+    input.close();
+    if (count == 1) {
+        cout << "Hello " << user << "\n<Login Successful>\n";
+        cin.get();
+        diskon();
+    } else {
+        cout << "\nLogin Error\n";
+        main();
+    }
+}
+
+void daftar() {
+    string reguser, regpass;
+    system("cls");
+    cout << "Enter Username: ";
+    cin >> reguser;
+    cout << "Enter Your Password: ";
+    cin >> regpass;
+
+    ofstream reg("database.txt", ios::app);
+    reg << reguser << "  " << regpass << endl;
+    system("cls");
+    cout << "\nRegistration Successful" << endl;
+    main();
+}
+
+void forget() {
+    int ch;
+    system("cls");
+    cout << "Forgot? We are here to help" << endl;
+    cout << "1. Search By username" << endl;
+    cout << "2. Main menu" << endl;
+    cin >> ch;
+    switch (ch) {
+        case 1: {
+            int count = 0;  // Fix: Initialize 'count'
+            string searchuser, su, sp;
+            cout << "Enter your Remember username : ";
+            cin >> searchuser;
+
+            ifstream searchu("database.txt");
+            while (searchu >> su >> sp) {
+                if (su == searchuser) {
+                    count = 1;
+                    break;  // Fix: Exit the loop after finding a match
+                }
+            }
+            searchu.close();
+            if (count == 1) {
+                cout << "\nAccount found" << endl;
+                cout << "\nYour Password Is " << sp << endl;
+                cin.get();
+                system("cls");
+                main();
+            } else {
+                cout << "Sorry, your account was not found" << endl;
+                cin.get();
+                main();
+            }
+            break;
+        }
+        case 2:
+            main();
+            break;
+        default:
+            cout << "Invalid choice. Returning to main menu." << endl;
+            main();
+    }
+}
